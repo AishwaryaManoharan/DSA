@@ -1,0 +1,20 @@
+class Solution {
+    public boolean isValid(String s) {
+
+        Stack<Character> stack = new Stack<>();
+        
+        for(char cur:s.toCharArray())
+        {
+            if(!stack.isEmpty())
+            {
+                char top=stack.peek();
+                if((cur==')' && top=='(') || (cur=='}' && top=='{') || (cur==']' && top=='[')){
+                    stack.pop();
+                    continue;
+                }
+            }
+        stack.push(cur);
+        }
+        return stack.isEmpty();
+    }
+}
